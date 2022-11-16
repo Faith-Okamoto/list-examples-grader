@@ -10,22 +10,22 @@ cd student-submission
 # check if the ListExamples.java file matches the given specifications
 if [[ ! -f ListExamples.java ]]
 then
-    echo "ListExamples.java file not found at top level; score is 0"
+    echo "ListExamples.java file not found at top level; score is 0."
     exit 0
 fi
 if [[ $(grep -c "interface StringChecker { boolean checkString(String s); }" ListExamples.java) -eq 0 ]]
 then
-    echo "ListExamples.java does not have the correct StringChecker interface; score is 0"
+    echo "ListExamples.java does not have the correct StringChecker interface; score is 0."
     exit 0
 fi
 if [[ $(grep -Ec 'static List<String> filter\(List<String>.+, StringChecker.+\)' ListExamples.java) -eq 0 ]]
 then
-    echo "ListExamples.java does not have a filter method with the expected signature; score is 0"
+    echo "ListExamples.java does not have a filter method with the expected signature; score is 0."
     exit 0
 fi
 if [[ $(grep -Ec 'static List<String> merge\(List<String>.+, List<String>.+\)' ListExamples.java) == 0 ]]
 then
-    echo "ListExamples.java does not have a merge method with the expected signature; score is 0"
+    echo "ListExamples.java does not have a merge method with the expected signature; score is 0."
     exit 0
 fi
 
@@ -44,7 +44,7 @@ then
 fi
 if [[ ! -f ListExamples.class ]]
 then
-    echo "ListExamples class not found; score is 0"
+    echo "ListExamples class not found; score is 0."
     exit 0
 fi
 
@@ -60,7 +60,7 @@ set -e
 if [[ $(grep -c "^OK" test.txt) -eq 1 ]]
 then
     TESTS=$(grep -Po "\d+ test" test.txt | grep -Po "\d+")
-    echo "All tests passed; score is ${TESTS}"
+    echo "All tests passed; score is ${TESTS}."
 else
     TESTS=$(grep -Po "Tests run: \d+" test.txt | grep -Po "\d+")
     FAILED=$(grep -Po "Failures: \d+" test.txt | grep -Po "\d+")
