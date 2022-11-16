@@ -31,7 +31,8 @@ fi
 
 # attempt compilation of ListExamples.java (unset -e because this might error)
 set +e
-javac ListExamples.java
+# redirect error output so it doesn't print
+javac ListExamples.java 2> error.txt
 EXIT=$?
 set -e
 
